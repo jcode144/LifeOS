@@ -113,8 +113,9 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 
 ### Signatures
 
-[Timothy Fazio][https://drive.google.com/file/d/1oFxP2me1fvFfGVn34kDhTvY-VEJoJvH6/view?usp=drive_link]
+[Timothy Fazio][Tim]
 
+[Tim]: https://drive.google.com/file/d/1oFxP2me1fvFfGVn34kDhTvY-VEJoJvH6/view?usp=drive_link
 [homepage]: https://www.contributor-covenant.org
 [v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
 [Mozilla CoC]: https://github.com/mozilla/diversity
