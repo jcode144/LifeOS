@@ -65,9 +65,13 @@ Jackson Albro will take all meeting notes and times. He will store them in a Goo
 
 We will allow all the team members to speak about their ideas fully and without interruption.
 
+## Feedback Policies
+
+The main method of feedback should be through an in-person conversation about the feedback
+
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at vince_halloran@uri.edu. All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 
@@ -113,4 +117,4 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 [FAQ]: https://www.contributor-covenant.org/faq
 [translations]: https://www.contributor-covenant.org/translations
 
-
+### Signatures
