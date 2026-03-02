@@ -46,6 +46,26 @@ Frequency: Weekly meetings
 Reasons for absence: Illness, life happenings, etc.
 Absent members should give notice if they are going to miss a meeting
 
+## Assignment Policies
+
+
+
+## Participation Policies
+
+
+
+## Agenda and Minutes Policies
+
+
+
+## Promptness Polices
+
+
+
+## Conversational Courtesies Policies
+
+
+
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.
