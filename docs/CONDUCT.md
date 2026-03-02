@@ -48,23 +48,22 @@ Absent members should give notice if they are going to miss a meeting
 
 ## Assignment Policies
 
-
+Assignments will be made through group members volunteering.
+Incompleted or poorly completed work will be discussed by the group for the steps moving forward.
 
 ## Participation Policies
 
-
+We will communicate through group phone messaging.
+We will ensure the full participation of everyone through openly communicating with each other about what we will work on.
+We will honor members' strengths and interests by letting them focus on the areas of the app that best suit them.
 
 ## Agenda and Minutes Policies
 
-
-
-## Promptness Polices
-
-
+Jackson Albro will take all meeting notes and times. He will store them in a Google document that is shared with all team members.
 
 ## Conversational Courtesies Policies
 
-
+We will allow all the team members to speak about their ideas fully and without interruption.
 
 ## Enforcement
 
