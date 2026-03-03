@@ -114,10 +114,12 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 ### Signatures
 
 [Timothy Fazio][Tim] <br />
-[Jackson Albro][Jackson]
+[Jackson Albro][Jackson] <br />
+[Vince Halloran][Vince]
 
 [Tim]: https://drive.google.com/file/d/1oFxP2me1fvFfGVn34kDhTvY-VEJoJvH6/view?usp=drive_link
 [Jackson]: https://drive.google.com/file/d/1zTmygi0FXhS0RqZ2XS47svuO5hTZx5yi/view?usp=sharing
+[Vince]: https://drive.google.com/file/d/1Ha8qtErtnSatrVEA0-aXnftF7h0m0EYf/view?usp=sharing
 [homepage]: https://www.contributor-covenant.org
 [v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
 [Mozilla CoC]: https://github.com/mozilla/diversity
