@@ -113,7 +113,7 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 
 ### Signatures
 
-[Timothy Fazio][Tim]
+[Timothy Fazio][Tim] <br />
 [Jackson Albro][Jackson]
 
 [Tim]: https://drive.google.com/file/d/1oFxP2me1fvFfGVn34kDhTvY-VEJoJvH6/view?usp=drive_link
