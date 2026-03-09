@@ -11,6 +11,6 @@
 * Supporting Data: In the responses shown, “Sleep schedule” and “Exercise” appear repeatedly as the hardest habits to stay consistent with, especially among users aged
 * Team Action (if any): Add potential features such as reminders, habit tracking, or streak systems to help users stay consistent with sleep and exercise. This idea is currently in the product backlog and may be implemented if time allows.
 # Observation 4
-* Observation Statement:
-* Supporting Data:
-* Team Action (if any):
+* Observation Statement: Many users reported hurdles with forming good habits, especially when it comes to consistency, lack of motivation, and poor time management
+* Supporting Data: Question 5 bar chart, where the top answers were lack of motivation, poor time management, and loss of consistency
+* Team Action (if any): Put features for reminder system and time management strategy
