@@ -67,12 +67,12 @@ Events to track with Firebase Analytics:
 
 ## Variations
 Current design:
-[Current design][Current design] <br />
+[Current design][Dashboard Current design] <br />
 
-[Current design]: https://drive.google.com/file/d/1Yb_y7I55e-vk9YtuWSo_Yr-4vfn7RXCh/view?usp=drive_link
+[Dashboard Current design]: https://drive.google.com/file/d/1Yb_y7I55e-vk9YtuWSo_Yr-4vfn7RXCh/view?usp=drive_link
 
 Placed an inspirational quote under the AI summary on the dashboard
-[Changed design][Changed design] <br />
+[Changed design][Dashboard Changed design] <br />
 
-[Changed design]: https://drive.google.com/file/d/1Av-iIbp_JHoDz4lOU-PQqIWs5V1NA1gX/view?usp=drive_link
+[Dashboard Changed design]: https://drive.google.com/file/d/1Av-iIbp_JHoDz4lOU-PQqIWs5V1NA1gX/view?usp=drive_link
 
