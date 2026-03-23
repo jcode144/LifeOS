@@ -1,6 +1,6 @@
 [LifeOS Heart Framework](https://docs.google.com/presentation/d/1UNMpa46GYfoUQghHTcHfi7cyNXX8xTqsGqum7ubgU2M/edit?usp=sharing)
 # Happiness
-* NPS (Net Promoter Score) 
+* NPS (Net Promoter Score): add a survey that appears after X amount of logins in the tasks/habits page that asks user how their experience has been with the app on a scale of 1-5.
 # Engagement
 
 # Adoption
