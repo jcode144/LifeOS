@@ -37,3 +37,42 @@ Replace the text with a button:
 [Changed design][Changed design] <br />
 
 [Changed design]: https://drive.google.com/file/d/15zh7W1oIgdM-FG-stXgMggTKk778sHIO/view?usp=sharing
+
+# Jackson Albro - Inspirational Quote on Dashboard vs No Quote
+## US4: Golden Path
+## Heart Metrics
+* Happiness: User feedback
+* Engagement: Daily app opens, Tasks checked/completed per session
+* Retention: Day 1 / Day 3 return rate
+## Hypothesis
+* If we add a short inspirational quote to the dashboard, then users will feel more motivated and engaged, leading to increased retention and task completion.
+## Experiment
+Tools
+* Firebase A/B Testing
+* Firebase Remote Config
+* Firebase Analytics
+
+Audience
+Target users:
+* All users who land on the dashboard and use the app regularly
+
+Traffic Allocation:
+* 50% Control Group
+* 50% Experiment Group
+
+Events to track with Firebase Analytics:
+dashboard_viewed:	User lands on dashboard (default page if user has account)
+task_completed: User completes a task
+habit_check: User completes a habit iteration
+
+## Variations
+Current design:
+[Current design][Current design] <br />
+
+[Current design]: https://drive.google.com/file/d/1Yb_y7I55e-vk9YtuWSo_Yr-4vfn7RXCh/view?usp=drive_link
+
+Placed an inspirational quote under the AI summary on the dashboard
+[Changed design][Changed design] <br />
+
+[Changed design]: https://drive.google.com/file/d/1Av-iIbp_JHoDz4lOU-PQqIWs5V1NA1gX/view?usp=drive_link
+
