@@ -61,9 +61,9 @@ Traffic Allocation:
 * 50% Experiment Group
 
 Events to track with Firebase Analytics:
-dashboard_viewed:	User lands on dashboard (default page if user has account)
-task_completed: User completes a task
-habit_check: User completes a habit iteration
+* dashboard_viewed:	User lands on dashboard (default page if user has account)
+* task_completed: User completes a task
+* habit_check: User completes a habit iteration
 
 ## Variations
 Current design:
