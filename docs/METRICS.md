@@ -5,6 +5,8 @@
 # Engagement
 * DAU (Daily Active Users): number of unique users who enagged with the app in a given day
 * This metric can be determined through Firebase Analytics
+* CTR (Click through rate): measures how often users click something after seeing it
+* This metric can be calculated through data shown in Firebase Anaytics by looking at impression events (what is shown) and click events (what is tapped). We can see the CTR of a particular button or feature in our app (e.g. task creation button)
 
 # Adoption
 * Number of new users per week: Firebase
