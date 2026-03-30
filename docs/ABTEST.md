@@ -111,41 +111,44 @@ Replaced the auto-loaded AI summary with a "Show My Overview" button that reveal
 [Dashboard Changed design]: https://your-screenshot-link-here
 
 # Anthony Jimenez - Login Navigation Text Under Signup vs No Navigation
+
 ## US2: Account Login
+
 ## Heart Metrics
 * Number of successful logins per week.
 * Click-through rate of the login navigation text.
 * Login completion rate.
+
 ## Hypothesis
 If we add “Already have an account? Log in” text under the create account section, then more users will be able to find and access the login page, because it improves visibility and makes navigation easier for returning users.
+
 ## Experiment
-Tools
+
+### Tools
 * Firebase A/B Testing
 * Firebase Remote Config
 * Firebase Analytics
 
-Audience
-Target users:
+### Audience
+
+**Target users:**
 * All users who open the signup screen
 * Returning users who already have accounts
 
-Traffic Allocation:
+**Traffic Allocation:**
 * 50% Control Group
 * 50% Experiment Group
 
-Events to track with Firebase Analytics:
-login_screen_view:	User opens signup page
-login_nav_clicked:	User clicks the login navigation text
-login_started:	User begins login process
-login_success:	User successfully logs in
+**Events to track with Firebase Analytics:**
+* `login_screen_view`: User opens signup page
+* `login_nav_clicked`: User clicks the login navigation text
+* `login_started`: User begins login process
+* `login_success`: User successfully logs in
 
 ## Variations
-Current design:
-[Current design][Current design] <br />
 
-[Current design]: 
+**Current design:**  
+[Current design](https://drive.google.com/file/d/1Mbz_3QPbwAWB15qzLnnTCgs4in1Nyydu/view?usp=sharing)
 
-Added navigation text under signup:
-[Changed design][Changed design] <br />
-
-[Changed design]:
+**Added navigation text under signup:**  
+[Changed design](https://drive.google.com/file/d/1MMD-dfln5anUxU7iiQA73Ri60VyhJjku/view?usp=sharing)
