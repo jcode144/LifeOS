@@ -76,3 +76,36 @@ Placed an inspirational quote under the AI summary on the dashboard
 
 [Dashboard Changed design]: https://drive.google.com/file/d/1Av-iIbp_JHoDz4lOU-PQqIWs5V1NA1gX/view?usp=drive_link
 
+# Vince Halloran - AI Summary Shown on Dashboard Load vs AI Summary Hidden Behind "Show My Overview" Button
+## US4: Golden Path
+## Heart Metrics
+* Happiness: User satisfaction with the dashboard experience
+* Engagement: Daily app opens, AI summary views per session
+* Retention: Day 1 / Day 7 return rate
+## Hypothesis
+If the Gemini AI summary is displayed automatically on dashboard load, then users will engage with the app more frequently and return daily, because the value of the app is delivered instantly without requiring extra steps.
+## Experiment
+Tools
+* Firebase A/B Testing
+* Firebase Remote Config
+* Firebase Analytics
+Audience
+Target users:
+* All users who land on the dashboard after logging in
+Traffic Allocation:
+* 50% Control Group
+* 50% Experiment Group
+Events to track with Firebase Analytics:
+* dashboard_viewed: User lands on the dashboard
+* ai_summary_viewed: AI summary is visible on screen
+* show_overview_tapped: User taps the "Show My Overview" button (Variant B only)
+* task_completed: User completes a task after viewing the dashboard
+* habit_check: User completes a habit after viewing the dashboard
+## Variations
+Current design:
+[Current design][Dashboard Current design] <br />
+[Dashboard Current design]: https://your-screenshot-link-here
+
+Replaced the auto-loaded AI summary with a "Show My Overview" button that reveals the summary on tap:
+[Changed design][Dashboard Changed design] <br />
+[Dashboard Changed design]: https://your-screenshot-link-here
