@@ -104,7 +104,7 @@ Events to track with Firebase Analytics:
 ## Variations
 Current design:
 [Current design][Dashboard Current design] <br />
-[Dashboard Current design]: https://your-screenshot-link-here
+[Dashboard Current design]: https://drive.google.com/drive/u/0/home
 
 Replaced the auto-loaded AI summary with a "Show My Overview" button that reveals the summary on tap:
 [Changed design][Dashboard Changed design] <br />
@@ -143,7 +143,7 @@ login_success:	User successfully logs in
 Current design:
 [Current design][Current design] <br />
 
-[Current design]: https://drive.google.com/drive/u/0/home
+[Current design]: 
 
 Added navigation text under signup:
 [Changed design][Changed design] <br />
