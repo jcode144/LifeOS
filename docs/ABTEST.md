@@ -143,7 +143,7 @@ login_success:	User successfully logs in
 Current design:
 [Current design][Current design] <br />
 
-[Current design]: https://drive.google.com/file/d/1Mbz_3QPbwAWB15qzLnnTCgs4in1Nyydu/view?usp=sharing
+[Current design]: https://drive.google.com/drive/u/0/home
 
 Added navigation text under signup:
 [Changed design][Changed design] <br />
