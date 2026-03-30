@@ -104,7 +104,7 @@ Events to track with Firebase Analytics:
 ## Variations
 Current design:
 [Current design][Dashboard Current design] <br />
-[Dashboard Current design]: https://drive.google.com/drive/u/0/home
+[Dashboard Current design]: https://drive.google.com/file/d/1vxz7UpC1rgACOHpMWNLJuc8Q7O9EHPfT/view?usp=sharing
 
 Replaced the auto-loaded AI summary with a "Show My Overview" button that reveals the summary on tap:
 [Changed design][Dashboard Changed design] <br />
