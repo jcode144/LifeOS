@@ -19,3 +19,9 @@
 * Churn rate: Define churn as users inactive for 7+ or 30+ days. Use last_active to identify them. Churn rate = (# inactive users / total users).
 
 # Task Success
+
+Tasks completed on time percentage: track due dates vs completion timestamps to calculate how many tasks are finished before their deadline
+Task completion rate: percentage of tasks successfully completed by users
+Time to complete task: measure how long it takes users to create and finish a task
+Error rate: track failed actions or retries during task/habit flows
+Drop-off rate: percentage of users who don’t finish creating a task or habit
