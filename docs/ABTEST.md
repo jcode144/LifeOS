@@ -108,7 +108,7 @@ Current design:
 
 Replaced the auto-loaded AI summary with a "Show My Overview" button that reveals the summary on tap:
 [Changed design][Dashboard Changed design] <br />
-[Dashboard Changed design]: https://your-screenshot-link-here
+[Dashboard Changed design]: https://drive.google.com/file/d/1FI2hTUYAMzPKsQlDJb3w4ggSKW-CEpbK/view?usp=sharing
 
 # Anthony Jimenez - Login Navigation Text Under Signup vs No Navigation
 
