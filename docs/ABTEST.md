@@ -148,4 +148,4 @@ Current design:
 Added navigation text under signup:
 [Changed design][Changed design] <br />
 
-[Changed design]: https://drive.google.com/file/d/1MMD-dfln5anUxU7iiQA73Ri60VyhJjku/view?usp=sharing
+[Changed design]:
