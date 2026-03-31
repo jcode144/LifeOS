@@ -103,12 +103,10 @@ Events to track with Firebase Analytics:
 * habit_check: User completes a habit after viewing the dashboard
 ## Variations
 Current design:
-[Current design][Vince Dashboard Current design] <br />
-[Vince Dashboard Current design]: https://drive.google.com/file/d/1vxz7UpC1rgACOHpMWNLJuc8Q7O9EHPfT/view?usp=sharing
+[![Current design](https://drive.google.com/thumbnail?id=1vxz7UpC1rgACOHpMWNLJuc8Q7O9EHPfT)](https://drive.google.com/file/d/1vxz7UpC1rgACOHpMWNLJuc8Q7O9EHPfT/view?usp=sharing)
 
 Replaced the auto-loaded AI summary with a "Show My Overview" button that reveals the summary on tap:
-[Changed design][Vince Dashboard Changed design] <br />
-[Vince Dashboard Changed design]: https://drive.google.com/file/d/1FI2hTUYAMzPKsQlDJb3w4ggSKW-CEpbK/view?usp=sharing
+[![Changed design](https://drive.google.com/thumbnail?id=1FI2hTUYAMzPKsQlDJb3w4ggSKW-CEpbK)](https://drive.google.com/file/d/1FI2hTUYAMzPKsQlDJb3w4ggSKW-CEpbK/view?usp=sharing)
 # Anthony Jimenez - Login Navigation Text Under Signup vs No Navigation
 
 ## US2: Account Login
