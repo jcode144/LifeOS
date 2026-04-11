@@ -74,7 +74,9 @@ void main() async {
           create: (context) => shadcn_u_i_kit_v48jv9_app_state.FFAppState(),
         ),
       ],
-      child: const MyApp(),
+      child: MyApp(
+        entryPage: CreateAccountWidget(),
+      ),
     ));
     await GoogleFonts.pendingFonts();
 
