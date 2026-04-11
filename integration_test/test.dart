@@ -74,12 +74,11 @@ void main() async {
           create: (context) => shadcn_u_i_kit_v48jv9_app_state.FFAppState(),
         ),
       ],
-      child: MyApp(
-        entryPage: CreateAccountWidget(),
-      ),
+      child: const MyApp(),
     ));
     await GoogleFonts.pendingFonts();
 
+    await tester.tap(find.byKey(const ValueKey('Create-Button_0hvf')));
     await tester.enterText(
         find.byKey(const ValueKey('Create-Email_6eg7')), 'emaile@email.com');
     await tester.enterText(

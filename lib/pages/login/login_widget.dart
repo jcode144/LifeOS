@@ -411,6 +411,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     if (getRemoteConfigString('sign_up_style') == 'button')
                       FFButtonWidget(
+                        key: ValueKey('Create-Button_0hvf'),
                         onPressed: () async {
                           logFirebaseEvent('LOGIN_PAGE_Create-Button_ON_TAP');
                           logFirebaseEvent('Create-Button_navigate_to');
