@@ -53,6 +53,11 @@ class HabitsRecord extends FirestoreRecord {
   List<String> get completedDates => _completedDates ?? const [];
   bool hasCompletedDates() => _completedDates != null;
 
+  // "completionratep" field.
+  double? _completionratep;
+  double get completionratep => _completionratep ?? 0.0;
+  bool hasCompletionratep() => _completionratep != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -61,6 +66,7 @@ class HabitsRecord extends FirestoreRecord {
     _createdAt = snapshotData['created_at'] as DateTime?;
     _userRef = snapshotData['user_ref'] as DocumentReference?;
     _completedDates = getDataList(snapshotData['completed_dates']);
+    _completionratep = castToType<double>(snapshotData['completionratep']);
   }
 
   static CollectionReference get collection =>
@@ -103,6 +109,7 @@ Map<String, dynamic> createHabitsRecordData({
   DateTime? startDate,
   DateTime? createdAt,
   DocumentReference? userRef,
+  double? completionratep,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +119,7 @@ Map<String, dynamic> createHabitsRecordData({
       'start_date': startDate,
       'created_at': createdAt,
       'user_ref': userRef,
+      'completionratep': completionratep,
     }.withoutNulls,
   );
 
@@ -130,7 +138,8 @@ class HabitsRecordDocumentEquality implements Equality<HabitsRecord> {
         e1?.startDate == e2?.startDate &&
         e1?.createdAt == e2?.createdAt &&
         e1?.userRef == e2?.userRef &&
-        listEquality.equals(e1?.completedDates, e2?.completedDates);
+        listEquality.equals(e1?.completedDates, e2?.completedDates) &&
+        e1?.completionratep == e2?.completionratep;
   }
 
   @override
@@ -141,7 +150,8 @@ class HabitsRecordDocumentEquality implements Equality<HabitsRecord> {
         e?.startDate,
         e?.createdAt,
         e?.userRef,
-        e?.completedDates
+        e?.completedDates,
+        e?.completionratep
       ]);
 
   @override
