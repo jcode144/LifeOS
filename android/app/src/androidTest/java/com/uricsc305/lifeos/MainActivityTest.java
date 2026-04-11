@@ -1,4 +1,4 @@
-package com.mycompany.lifeos;
+package com.uricsc305.lifeos;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;

@@ -480,6 +480,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                       user: currentUserReference,
                       created: getCurrentTimestamp,
                       dueTime: _model.datePicked,
+                      notified1hr: false,
                     ));
                 logFirebaseEvent('Button_backend_call');
 

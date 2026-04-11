@@ -18,8 +18,7 @@ class GeminiSummaryCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GeminiSummary',
-      apiUrl:
-          'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyAL00xTvYsvveIKSK2ehn9O4hpUA3KXlUU',
+      apiUrl: 'https://geminisummary-nja3kvfkfq-uc.a.run.app',
       callType: ApiCallType.POST,
       headers: {},
       params: {},

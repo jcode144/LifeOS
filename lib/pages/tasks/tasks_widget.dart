@@ -392,7 +392,8 @@ class _TasksWidgetState extends State<TasksWidget>
                                                     isEqualTo:
                                                         currentUserReference,
                                                   )
-                                                  .orderBy('time_completed'),
+                                                  .orderBy('time_completed',
+                                                      descending: true),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.

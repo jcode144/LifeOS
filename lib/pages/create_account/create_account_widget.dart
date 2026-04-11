@@ -105,6 +105,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     Container(
                       width: 250.0,
                       child: TextFormField(
+                        key: ValueKey('Create-Email_6eg7'),
                         controller: _model.createEmailTextController,
                         focusNode: _model.createEmailFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
@@ -229,6 +230,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     Container(
                       width: 250.0,
                       child: TextFormField(
+                        key: ValueKey('Create-Password_fxcl'),
                         controller: _model.createPasswordTextController,
                         focusNode: _model.createPasswordFocusNode,
                         autofocus: false,
@@ -348,6 +350,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     Container(
                       width: 250.0,
                       child: TextFormField(
+                        key: ValueKey('Create-Confirm-Passowrd_lbor'),
                         controller: _model.createConfirmPassowrdTextController,
                         focusNode: _model.createConfirmPassowrdFocusNode,
                         autofocus: false,
@@ -466,6 +469,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                     ),
                     FFButtonWidget(
+                      key: ValueKey('Button_ugsf'),
                       onPressed: () async {
                         logFirebaseEvent(
                             'CREATE_ACCOUNT_CREATE_ACCOUNT_BTN_ON_TAP');

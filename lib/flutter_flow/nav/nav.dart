@@ -98,13 +98,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
             : LoginWidget(),
       ),
       FFRoute(
-        name: ProgressWidget.routeName,
-        path: ProgressWidget.routePath,
-        builder: (context, params) => params.isEmpty
-            ? NavBarPage(initialPage: 'progress')
-            : ProgressWidget(),
-      ),
-      FFRoute(
         name: CreateProfileWidget.routeName,
         path: CreateProfileWidget.routePath,
         builder: (context, params) => CreateProfileWidget(),
@@ -127,15 +120,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
         builder: (context, params) => LoginWidget(),
       ),
       FFRoute(
-          name: TasksWidget.routeName,
-          path: TasksWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'tasks')
-              : NavBarPage(
-                  initialPage: 'tasks',
-                  page: TasksWidget(),
-                )),
-      FFRoute(
           name: HabitsWidget.routeName,
           path: HabitsWidget.routePath,
           builder: (context, params) => params.isEmpty
@@ -143,6 +127,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
               : NavBarPage(
                   initialPage: 'habits',
                   page: HabitsWidget(),
+                )),
+      FFRoute(
+        name: ProgressWidget.routeName,
+        path: ProgressWidget.routePath,
+        builder: (context, params) => params.isEmpty
+            ? NavBarPage(initialPage: 'progress')
+            : ProgressWidget(),
+      ),
+      FFRoute(
+          name: TasksWidget.routeName,
+          path: TasksWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'tasks')
+              : NavBarPage(
+                  initialPage: 'tasks',
+                  page: TasksWidget(),
                 )),
       FFRoute(
         name: $shadcn_u_i_kit_v48jv9.HomeWidget.routeName,

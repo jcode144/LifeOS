@@ -32,7 +32,7 @@
         },
         {
           "fieldPath": "time_completed",
-          "order": "ASCENDING"
+          "order": "DESCENDING"
         }
       ]
     }

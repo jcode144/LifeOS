@@ -78,13 +78,17 @@ class _TaskcompleteWidgetState extends State<TaskcompleteWidget> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            valueOrDefault<String>(
-                              widget.taskDoc?.title,
-                              'title',
-                            ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyLarge.override(
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.taskDoc?.title,
+                                  'title',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
                                       font: GoogleFonts.inter(
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
@@ -97,12 +101,14 @@ class _TaskcompleteWidgetState extends State<TaskcompleteWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+                              ),
+                            ],
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Was due: ',
+                                'Completed: ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
