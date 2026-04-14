@@ -418,7 +418,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                           context.pushNamed(CreateAccountWidget.routeName);
                         },
-                        text: 'Create Account',
+                        text: 'Create Account?',
                         options: FFButtonOptions(
                           width: 240.0,
                           height: 64.0,

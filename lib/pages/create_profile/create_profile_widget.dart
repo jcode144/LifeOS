@@ -68,6 +68,22 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    Align(
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/LifeOS_logo.png',
+                            width: 312.1,
+                            height: 103.2,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -538,67 +554,59 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         ].divide(SizedBox(height: 24.0)),
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'CREATE_PROFILE_COMPLETE_PROFILE_BTN_ON_T');
-                        logFirebaseEvent('Button_backend_call');
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'CREATE_PROFILE_COMPLETE_PROFILE_BTN_ON_T');
+                          logFirebaseEvent('Button_backend_call');
 
-                        await currentUserReference!
-                            .update(createUsersRecordData(
-                          displayName: _model.nameTextController.text,
-                          birthday: _model.datePicked,
-                        ));
-                        logFirebaseEvent('Button_navigate_to');
+                          await currentUserReference!
+                              .update(createUsersRecordData(
+                            displayName: _model.nameTextController.text,
+                            birthday: _model.datePicked,
+                          ));
+                          logFirebaseEvent('Button_navigate_to');
 
-                        context.goNamed(DashboardWidget.routeName);
-                      },
-                      text: 'Complete profile',
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 70.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFFA3B18A),
-                        textStyle: FlutterFlowTheme.of(context)
-                            .labelMedium
-                            .override(
-                              font: GoogleFonts.inter(
+                          context.goNamed(DashboardWidget.routeName);
+                        },
+                        text: 'Complete profile',
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 70.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFFA3B18A),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 24.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 24.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .fontStyle,
-                            ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
                         ),
-                        borderRadius: BorderRadius.circular(24.0),
                       ),
                     ),
                   ],
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/LifeOS_logo.png',
-                    width: 312.1,
-                    height: 103.2,
-                    fit: BoxFit.contain,
-                  ),
                 ),
               ),
             ],

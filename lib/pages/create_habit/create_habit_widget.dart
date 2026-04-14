@@ -480,6 +480,8 @@ class _CreateHabitWidgetState extends State<CreateHabitWidget> {
                     frequency: _model.addFrequencyValue,
                     startDate: _model.datePicked,
                     userRef: currentUserReference,
+                    completionratep: 0.0,
+                    currentStreak: 0,
                   ),
                   ...mapToFirestore(
                     {

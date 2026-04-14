@@ -250,7 +250,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     ),
                   ),
                 ),
-              ].divide(SizedBox(height: 10.0)).around(SizedBox(height: 10.0)),
+              ].divide(SizedBox(height: 24.0)).around(SizedBox(height: 24.0)),
             ),
           ),
         ),

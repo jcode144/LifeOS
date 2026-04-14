@@ -104,13 +104,23 @@ class _HabitsWidgetState extends State<HabitsWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
-                'Habits',
-                style: FlutterFlowTheme.of(context).headlineLarge.override(
-                      font: GoogleFonts.interTight(
+          child: Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Text(
+                  'Habits',
+                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                        font: GoogleFonts.interTight(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .fontStyle,
+                        ),
+                        letterSpacing: 0.0,
                         fontWeight: FlutterFlowTheme.of(context)
                             .headlineLarge
                             .fontWeight,
@@ -118,75 +128,72 @@ class _HabitsWidgetState extends State<HabitsWidget> {
                             .headlineLarge
                             .fontStyle,
                       ),
-                      letterSpacing: 0.0,
-                      fontWeight:
-                          FlutterFlowTheme.of(context).headlineLarge.fontWeight,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).headlineLarge.fontStyle,
-                    ),
-              ),
-              Text(
-                dateTimeFormat("MMMEd", getCurrentTimestamp),
-                style: FlutterFlowTheme.of(context).titleMedium.override(
-                      font: GoogleFonts.interTight(
+                ),
+                Text(
+                  dateTimeFormat("MMMEd", getCurrentTimestamp),
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                        font: GoogleFonts.interTight(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
+                        ),
+                        letterSpacing: 0.0,
                         fontWeight:
                             FlutterFlowTheme.of(context).titleMedium.fontWeight,
                         fontStyle:
                             FlutterFlowTheme.of(context).titleMedium.fontStyle,
                       ),
-                      letterSpacing: 0.0,
-                      fontWeight:
-                          FlutterFlowTheme.of(context).titleMedium.fontWeight,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                ),
+                Expanded(
+                  child: StreamBuilder<List<HabitsRecord>>(
+                    stream: queryHabitsRecord(
+                      queryBuilder: (habitsRecord) => habitsRecord.where(
+                        'user_ref',
+                        isEqualTo: currentUserReference,
+                      ),
                     ),
-              ),
-              Expanded(
-                child: StreamBuilder<List<HabitsRecord>>(
-                  stream: queryHabitsRecord(
-                    queryBuilder: (habitsRecord) => habitsRecord.where(
-                      'user_ref',
-                      isEqualTo: currentUserReference,
-                    ),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }
-                    List<HabitsRecord> listViewHabitsRecordList =
-                        snapshot.data!;
-
-                    return ListView.separated(
-                      padding: EdgeInsets.symmetric(vertical: 12.0),
-                      scrollDirection: Axis.vertical,
-                      itemCount: listViewHabitsRecordList.length,
-                      separatorBuilder: (_, __) => SizedBox(height: 12.0),
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewHabitsRecord =
-                            listViewHabitsRecordList[listViewIndex];
-                        return HabitDefaultWidget(
-                          key: Key(
-                              'Keyp80_${listViewIndex}_of_${listViewHabitsRecordList.length}'),
-                          habitDoc: listViewHabitsRecord,
-                          habitAction: () async {},
                         );
-                      },
-                    );
-                  },
+                      }
+                      List<HabitsRecord> listViewHabitsRecordList =
+                          snapshot.data!;
+
+                      return ListView.separated(
+                        padding: EdgeInsets.symmetric(vertical: 12.0),
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewHabitsRecordList.length,
+                        separatorBuilder: (_, __) => SizedBox(height: 12.0),
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewHabitsRecord =
+                              listViewHabitsRecordList[listViewIndex];
+                          return HabitDefaultWidget(
+                            key: Key(
+                                'Keyp80_${listViewIndex}_of_${listViewHabitsRecordList.length}'),
+                            habitDoc: listViewHabitsRecord,
+                            habitAction: () async {},
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
+            ),
           ),
         ),
       ),

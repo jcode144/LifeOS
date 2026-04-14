@@ -699,15 +699,127 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: StreamBuilder<
+                                                List<HabitsRecord>>(
+                                              stream: queryHabitsRecord(
+                                                queryBuilder: (habitsRecord) =>
+                                                    habitsRecord.where(
+                                                  'user_ref',
+                                                  isEqualTo:
+                                                      currentUserReference,
+                                                ),
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                List<HabitsRecord>
+                                                    textHabitsRecordList =
+                                                    snapshot.data!;
+
+                                                return Text(
+                                                  functions
+                                                      .getBestHabitStreakName(
+                                                          textHabitsRecordList
+                                                              .toList()),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .displaySmall
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 24.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
+                                                      ),
+                                                );
+                                              },
+                                            ),
+                                          ),
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              Text(
-                                                '[NAME OF HABIT]',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              StreamBuilder<List<HabitsRecord>>(
+                                                stream: queryHabitsRecord(
+                                                  queryBuilder:
+                                                      (habitsRecord) =>
+                                                          habitsRecord.where(
+                                                    'user_ref',
+                                                    isEqualTo:
+                                                        currentUserReference,
+                                                  ),
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<HabitsRecord>
+                                                      textHabitsRecordList =
+                                                      snapshot.data!;
+
+                                                  return Text(
+                                                    functions
+                                                        .getBestHabitStreakStreak(
+                                                            textHabitsRecordList
+                                                                .toList())
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .displaySmall
                                                         .override(
                                                           font: GoogleFonts
@@ -723,6 +835,7 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          fontSize: 22.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w800,
@@ -732,6 +845,8 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                                   .displaySmall
                                                                   .fontStyle,
                                                         ),
+                                                  );
+                                                },
                                               ),
                                             ],
                                           ),
@@ -836,10 +951,47 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              Text(
-                                                '[NAME OF HABIT]',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              StreamBuilder<List<HabitsRecord>>(
+                                                stream: queryHabitsRecord(
+                                                  queryBuilder:
+                                                      (habitsRecord) =>
+                                                          habitsRecord.where(
+                                                    'user_ref',
+                                                    isEqualTo:
+                                                        currentUserReference,
+                                                  ),
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<HabitsRecord>
+                                                      textHabitsRecordList =
+                                                      snapshot.data!;
+
+                                                  return Text(
+                                                    functions
+                                                        .findHabitWithLowestPercent(
+                                                            textHabitsRecordList
+                                                                .toList()),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .displaySmall
                                                         .override(
                                                           font: GoogleFonts
@@ -855,6 +1007,7 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
+                                                          fontSize: 24.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w800,
@@ -864,6 +1017,8 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                                   .displaySmall
                                                                   .fontStyle,
                                                         ),
+                                                  );
+                                                },
                                               ),
                                             ],
                                           ),

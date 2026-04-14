@@ -58,6 +58,11 @@ class HabitsRecord extends FirestoreRecord {
   double get completionratep => _completionratep ?? 0.0;
   bool hasCompletionratep() => _completionratep != null;
 
+  // "current_streak" field.
+  int? _currentStreak;
+  int get currentStreak => _currentStreak ?? 0;
+  bool hasCurrentStreak() => _currentStreak != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -67,6 +72,7 @@ class HabitsRecord extends FirestoreRecord {
     _userRef = snapshotData['user_ref'] as DocumentReference?;
     _completedDates = getDataList(snapshotData['completed_dates']);
     _completionratep = castToType<double>(snapshotData['completionratep']);
+    _currentStreak = castToType<int>(snapshotData['current_streak']);
   }
 
   static CollectionReference get collection =>
@@ -110,6 +116,7 @@ Map<String, dynamic> createHabitsRecordData({
   DateTime? createdAt,
   DocumentReference? userRef,
   double? completionratep,
+  int? currentStreak,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +127,7 @@ Map<String, dynamic> createHabitsRecordData({
       'created_at': createdAt,
       'user_ref': userRef,
       'completionratep': completionratep,
+      'current_streak': currentStreak,
     }.withoutNulls,
   );
 
@@ -139,7 +147,8 @@ class HabitsRecordDocumentEquality implements Equality<HabitsRecord> {
         e1?.createdAt == e2?.createdAt &&
         e1?.userRef == e2?.userRef &&
         listEquality.equals(e1?.completedDates, e2?.completedDates) &&
-        e1?.completionratep == e2?.completionratep;
+        e1?.completionratep == e2?.completionratep &&
+        e1?.currentStreak == e2?.currentStreak;
   }
 
   @override
@@ -151,7 +160,8 @@ class HabitsRecordDocumentEquality implements Equality<HabitsRecord> {
         e?.createdAt,
         e?.userRef,
         e?.completedDates,
-        e?.completionratep
+        e?.completionratep,
+        e?.currentStreak
       ]);
 
   @override

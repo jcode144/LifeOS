@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -134,6 +135,13 @@ class _HabitDefaultWidgetState extends State<HabitDefaultWidget>
                 },
               ),
             });
+            logFirebaseEvent('Container_backend_call');
+
+            await widget.habitDoc!.reference.update(createHabitsRecordData(
+              completionratep: functions
+                  .calculateHabitCompletionPercentage(widget.habitDoc!),
+              currentStreak: functions.calculateBestStreak(widget.habitDoc!),
+            ));
           }
         },
         onLongPress: () async {
@@ -219,7 +227,7 @@ class _HabitDefaultWidgetState extends State<HabitDefaultWidget>
                             Text(
                               valueOrDefault<String>(
                                 widget.habitDoc?.name,
-                                'habitName',
+                                'habitname',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
