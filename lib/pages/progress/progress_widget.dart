@@ -71,7 +71,7 @@ class _ProgressWidgetState extends State<ProgressWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFDAD7CD),
+        backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           child: Padding(
@@ -86,18 +86,14 @@ class _ProgressWidgetState extends State<ProgressWidget>
                     'Progress',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
-                          font: GoogleFonts.interTight(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .headlineLarge
-                                .fontWeight,
+                          font: GoogleFonts.plusJakartaSans(
+                            fontWeight: FontWeight.w500,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .headlineLarge
                                 .fontStyle,
                           ),
                           letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .headlineLarge
-                              .fontWeight,
+                          fontWeight: FontWeight.w500,
                           fontStyle: FlutterFlowTheme.of(context)
                               .headlineLarge
                               .fontStyle,
@@ -105,264 +101,106 @@ class _ProgressWidgetState extends State<ProgressWidget>
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment(0.0, 0),
-                        child: TabBar(
-                          labelColor: FlutterFlowTheme.of(context).primaryText,
-                          unselectedLabelColor:
-                              FlutterFlowTheme.of(context).secondaryText,
-                          labelStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    font: GoogleFonts.interTight(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontWeight,
+                  child: Container(
+                    width: 400.0,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment(0.0, 0),
+                          child: TabBar(
+                            labelColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            unselectedLabelColor:
+                                FlutterFlowTheme.of(context).secondaryText,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  font: GoogleFonts.plusJakartaSans(
+                                    fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
+                                        .titleLarge
                                         .fontStyle,
                                   ),
-                          unselectedLabelStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    font: GoogleFonts.interTight(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontWeight,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                ),
+                            unselectedLabelStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  font: GoogleFonts.plusJakartaSans(
+                                    fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
+                                        .titleLarge
                                         .fontStyle,
                                   ),
-                          indicatorColor: Color(0xFFA3B18A),
-                          tabs: [
-                            Tab(
-                              text: 'Tasks',
-                            ),
-                            Tab(
-                              text: 'Habits',
-                            ),
-                          ],
-                          controller: _model.tabBarController,
-                          onTap: (i) async {
-                            [() async {}, () async {}][i]();
-                          },
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                ),
+                            indicatorColor: Color(0xFF4CB963),
+                            tabs: [
+                              Tab(
+                                text: 'Tasks',
+                              ),
+                              Tab(
+                                text: 'Habits',
+                              ),
+                            ],
+                            controller: _model.tabBarController,
+                            onTap: (i) async {
+                              [() async {}, () async {}][i]();
+                            },
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          controller: _model.tabBarController,
-                          children: [
-                            SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0x1A000000),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Weekly Tasks Completed',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleMedium
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.interTight(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMedium
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: StreamBuilder<
-                                                  List<TasksRecord>>(
-                                                stream: queryTasksRecord(
-                                                  queryBuilder: (tasksRecord) =>
-                                                      tasksRecord.where(
-                                                    'user',
-                                                    isEqualTo:
-                                                        currentUserReference,
-                                                  ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<TasksRecord>
-                                                      progressBarTasksRecordList =
-                                                      snapshot.data!;
-
-                                                  return CircularPercentIndicator(
-                                                    percent: functions
-                                                        .numberWeeklyTasksDueD(
-                                                            progressBarTasksRecordList
-                                                                .toList()),
-                                                    radius: 60.0,
-                                                    lineWidth: 17.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        Color(0xFFA3B18A),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate,
-                                                    center: Text(
-                                                      valueOrDefault<String>(
-                                                        functions
-                                                            .numberWeeklyTasksDueW(
-                                                                progressBarTasksRecordList
-                                                                    .toList()),
-                                                        '0%',
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w800,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 24.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w800,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ),
-                                                  );
-                                                },
+                        Expanded(
+                          child: TabBarView(
+                            controller: _model.tabBarController,
+                            children: [
+                              SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(20.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0x1A000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
                                               ),
-                                            ),
-                                          ].divide(SizedBox(height: 16.0)),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0x1A000000),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                'Total Tasks Completed',
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Weekly Tasks Completed',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
                                                           font: GoogleFonts
-                                                              .interTight(
+                                                              .plusJakartaSans(
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             fontStyle:
@@ -384,35 +222,18 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                                   .fontStyle,
                                                         ),
                                               ),
-                                            ),
-                                            Divider(
-                                              height: 1.0,
-                                              thickness: 1.0,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                StreamBuilder<
+                                              Padding(
+                                                padding: EdgeInsets.all(4.0),
+                                                child: StreamBuilder<
                                                     List<TasksRecord>>(
                                                   stream: queryTasksRecord(
                                                     queryBuilder:
                                                         (tasksRecord) =>
-                                                            tasksRecord
-                                                                .where(
-                                                                  'user',
-                                                                  isEqualTo:
-                                                                      currentUserReference,
-                                                                )
-                                                                .where(
-                                                                  'completed',
-                                                                  isEqualTo:
-                                                                      true,
-                                                                ),
+                                                            tasksRecord.where(
+                                                      'user',
+                                                      isEqualTo:
+                                                          currentUserReference,
+                                                    ),
                                                   ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
@@ -435,23 +256,213 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                       );
                                                     }
                                                     List<TasksRecord>
-                                                        textTasksRecordList =
+                                                        progressBarTasksRecordList =
                                                         snapshot.data!;
 
-                                                    return Text(
-                                                      valueOrDefault<String>(
-                                                        textTasksRecordList
-                                                            .length
-                                                            .toString(),
-                                                        '0',
-                                                      ),
-                                                      style:
+                                                    return CircularPercentIndicator(
+                                                      percent: functions
+                                                          .numberWeeklyTasksDueD(
+                                                              progressBarTasksRecordList
+                                                                  .toList()),
+                                                      radius: 60.0,
+                                                      lineWidth: 17.0,
+                                                      animation: true,
+                                                      animateFromLastPercent:
+                                                          true,
+                                                      progressColor:
+                                                          Color(0xFFA3B18A),
+                                                      backgroundColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .displaySmall
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .interTight(
+                                                              .alternate,
+                                                      center: Text(
+                                                        valueOrDefault<String>(
+                                                          functions.numberWeeklyTasksDueW(
+                                                              progressBarTasksRecordList
+                                                                  .toList()),
+                                                          '0%',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .plusJakartaSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      24.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(20.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x754CB963),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0x1A000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  'Total Tasks Completed',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                              ),
+                                              Divider(
+                                                height: 1.0,
+                                                thickness: 1.0,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  StreamBuilder<
+                                                      List<TasksRecord>>(
+                                                    stream: queryTasksRecord(
+                                                      queryBuilder:
+                                                          (tasksRecord) =>
+                                                              tasksRecord
+                                                                  .where(
+                                                                    'user',
+                                                                    isEqualTo:
+                                                                        currentUserReference,
+                                                                  )
+                                                                  .where(
+                                                                    'completed',
+                                                                    isEqualTo:
+                                                                        true,
+                                                                  ),
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<TasksRecord>
+                                                          textTasksRecordList =
+                                                          snapshot.data!;
+
+                                                      return Text(
+                                                        valueOrDefault<String>(
+                                                          textTasksRecordList
+                                                              .length
+                                                              .toString(),
+                                                          '0',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .plusJakartaSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w800,
@@ -460,36 +471,184 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                                       .displaySmall
                                                                       .fontStyle,
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w800,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .displaySmall
-                                                                    .fontStyle,
-                                                              ),
-                                                    );
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          ].divide(SizedBox(height: 12.0)),
+                                                      );
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ].divide(SizedBox(height: 12.0)),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                    Padding(
+                                      padding: EdgeInsets.all(20.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0x1A000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Total Tasks Completed',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                        ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(4.0),
+                                                child: StreamBuilder<
+                                                    List<TasksRecord>>(
+                                                  stream: queryTasksRecord(
+                                                    queryBuilder:
+                                                        (tasksRecord) =>
+                                                            tasksRecord.where(
+                                                      'user',
+                                                      isEqualTo:
+                                                          currentUserReference,
+                                                    ),
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<TasksRecord>
+                                                        progressBarTasksRecordList =
+                                                        snapshot.data!;
+
+                                                    return CircularPercentIndicator(
+                                                      percent: functions
+                                                          .numberTotalTasksDueD(
+                                                              progressBarTasksRecordList
+                                                                  .toList()),
+                                                      radius: 60.0,
+                                                      lineWidth: 17.0,
+                                                      animation: true,
+                                                      animateFromLastPercent:
+                                                          true,
+                                                      progressColor:
+                                                          Color(0xFFA3B18A),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      center: Text(
+                                                        valueOrDefault<String>(
+                                                          functions.numberTotalTasksDueW(
+                                                              progressBarTasksRecordList
+                                                                  .toList()),
+                                                          '0%',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .plusJakartaSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      24.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
                                   Padding(
                                     padding: EdgeInsets.all(20.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Color(0x754CB963),
                                         boxShadow: [
                                           BoxShadow(
                                             blurRadius: 8.0,
@@ -508,16 +667,16 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Total Tasks Completed',
+                                              'Best Habit Streak',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    font:
-                                                        GoogleFonts.interTight(
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontStyle:
@@ -538,247 +697,18 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                             .fontStyle,
                                                   ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.all(4.0),
+                                            Divider(
+                                              height: 1.0,
+                                              thickness: 1.0,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: StreamBuilder<
-                                                  List<TasksRecord>>(
-                                                stream: queryTasksRecord(
-                                                  queryBuilder: (tasksRecord) =>
-                                                      tasksRecord.where(
-                                                    'user',
-                                                    isEqualTo:
-                                                        currentUserReference,
-                                                  ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<TasksRecord>
-                                                      progressBarTasksRecordList =
-                                                      snapshot.data!;
-
-                                                  return CircularPercentIndicator(
-                                                    percent: functions
-                                                        .numberTotalTasksDueD(
-                                                            progressBarTasksRecordList
-                                                                .toList()),
-                                                    radius: 60.0,
-                                                    lineWidth: 17.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        Color(0xFFA3B18A),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .alternate,
-                                                    center: Text(
-                                                      valueOrDefault<String>(
-                                                        functions
-                                                            .numberTotalTasksDueW(
-                                                                progressBarTasksRecordList
-                                                                    .toList()),
-                                                        '0%',
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w800,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 24.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w800,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(height: 16.0)),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.all(20.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 8.0,
-                                          color: Color(0x1A000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Best Habit Streak',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .override(
-                                                  font: GoogleFonts.interTight(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .fontStyle,
-                                                ),
-                                          ),
-                                          Divider(
-                                            height: 1.0,
-                                            thickness: 1.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: StreamBuilder<
-                                                List<HabitsRecord>>(
-                                              stream: queryHabitsRecord(
-                                                queryBuilder: (habitsRecord) =>
-                                                    habitsRecord.where(
-                                                  'user_ref',
-                                                  isEqualTo:
-                                                      currentUserReference,
-                                                ),
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<HabitsRecord>
-                                                    textHabitsRecordList =
-                                                    snapshot.data!;
-
-                                                return Text(
-                                                  functions
-                                                      .getBestHabitStreakName(
-                                                          textHabitsRecordList
-                                                              .toList()),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .interTight(
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .displaySmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontSize: 24.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .displaySmall
-                                                                .fontStyle,
-                                                      ),
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              StreamBuilder<List<HabitsRecord>>(
+                                                  List<HabitsRecord>>(
                                                 stream: queryHabitsRecord(
                                                   queryBuilder:
                                                       (habitsRecord) =>
@@ -814,180 +744,7 @@ class _ProgressWidgetState extends State<ProgressWidget>
 
                                                   return Text(
                                                     functions
-                                                        .getBestHabitStreakStreak(
-                                                            textHabitsRecordList
-                                                                .toList())
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .displaySmall
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .interTight(
-                                                            fontWeight:
-                                                                FontWeight.w800,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .displaySmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 22.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .displaySmall
-                                                                  .fontStyle,
-                                                        ),
-                                                  );
-                                                },
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            'Great Job!',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  font: GoogleFonts.inter(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontStyle,
-                                                ),
-                                          ),
-                                        ].divide(SizedBox(height: 12.0)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(20.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 8.0,
-                                          color: Color(0x1A000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Habits that still need work...',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .override(
-                                                  font: GoogleFonts.interTight(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .fontStyle,
-                                                ),
-                                          ),
-                                          Divider(
-                                            height: 1.0,
-                                            thickness: 1.0,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              StreamBuilder<List<HabitsRecord>>(
-                                                stream: queryHabitsRecord(
-                                                  queryBuilder:
-                                                      (habitsRecord) =>
-                                                          habitsRecord.where(
-                                                    'user_ref',
-                                                    isEqualTo:
-                                                        currentUserReference,
-                                                  ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<HabitsRecord>
-                                                      textHabitsRecordList =
-                                                      snapshot.data!;
-
-                                                  return Text(
-                                                    functions
-                                                        .findHabitWithLowestPercent(
+                                                        .getBestHabitStreakName(
                                                             textHabitsRecordList
                                                                 .toList()),
                                                     style: FlutterFlowTheme.of(
@@ -1020,53 +777,318 @@ class _ProgressWidgetState extends State<ProgressWidget>
                                                   );
                                                 },
                                               ),
-                                            ],
-                                          ),
-                                          Text(
-                                            'Keep at it!',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  font: GoogleFonts.inter(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall
-                                                            .fontStyle,
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                StreamBuilder<
+                                                    List<HabitsRecord>>(
+                                                  stream: queryHabitsRecord(
+                                                    queryBuilder:
+                                                        (habitsRecord) =>
+                                                            habitsRecord.where(
+                                                      'user_ref',
+                                                      isEqualTo:
+                                                          currentUserReference,
+                                                    ),
                                                   ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .fontStyle,
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<HabitsRecord>
+                                                        textHabitsRecordList =
+                                                        snapshot.data!;
+
+                                                    return Text(
+                                                      functions
+                                                          .getBestHabitStreakStreak(
+                                                              textHabitsRecordList
+                                                                  .toList())
+                                                          .toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .displaySmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 22.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w800,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .fontStyle,
+                                                              ),
+                                                    );
+                                                  },
                                                 ),
-                                          ),
-                                        ].divide(SizedBox(height: 12.0)),
+                                              ],
+                                            ),
+                                            Text(
+                                              'Great Job!',
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                          ].divide(SizedBox(height: 12.0)),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  Padding(
+                                    padding: EdgeInsets.all(20.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x754CB963),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 8.0,
+                                            color: Color(0x1A000000),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(16.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Habits that still need work...',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMedium
+                                                            .fontStyle,
+                                                  ),
+                                            ),
+                                            Divider(
+                                              height: 1.0,
+                                              thickness: 1.0,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                StreamBuilder<
+                                                    List<HabitsRecord>>(
+                                                  stream: queryHabitsRecord(
+                                                    queryBuilder:
+                                                        (habitsRecord) =>
+                                                            habitsRecord.where(
+                                                      'user_ref',
+                                                      isEqualTo:
+                                                          currentUserReference,
+                                                    ),
+                                                  ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<HabitsRecord>
+                                                        textHabitsRecordList =
+                                                        snapshot.data!;
+
+                                                    return Text(
+                                                      functions
+                                                          .findHabitWithLowestPercent(
+                                                              textHabitsRecordList
+                                                                  .toList()),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .displaySmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 24.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w800,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .fontStyle,
+                                                              ),
+                                                    );
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                            Text(
+                                              'Keep at it!',
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                          ].divide(SizedBox(height: 12.0)),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ].divide(SizedBox(height: 24.0)),

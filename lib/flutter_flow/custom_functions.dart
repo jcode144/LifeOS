@@ -209,3 +209,83 @@ int getBestHabitStreakStreak(List<HabitsRecord> habits) {
 
   return bestHabit.currentStreak;
 }
+
+String updateHabitJSON(List<HabitsRecord> habits) {
+  // Add the current time to the start of the return string
+  String currentTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+  List<Map<String, dynamic>> habitList = habits.map((habit) {
+    return {
+      'name': habit.name,
+      'description': habit.description,
+      'frequency': habit.frequency,
+      'start_date': habit.startDate?.toIso8601String(),
+      'created_at': habit.createdAt?.toIso8601String(),
+      'user_ref': habit.userRef?.id,
+      'completed_dates': habit.completedDates,
+      'completionratep': habit.completionratep,
+      'current_streak': habit.currentStreak,
+    };
+  }).toList();
+
+  return '$currentTime: ${jsonEncode(habitList)}';
+}
+
+String allTaskJSON(List<TasksRecord> tasks) {
+  // Modify the current code with the variables inside the task schema
+  String currentTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+  List<Map<String, dynamic>> taskList = tasks.map((task) {
+    return {
+      'title': task.title,
+      'details': task.details,
+      'completed': task.completed,
+      'user': task.user?.id,
+      'created': task.created?.toIso8601String(),
+      'time_completed': task.timeCompleted?.toIso8601String(),
+      'due_time': task.dueTime?.toIso8601String(),
+      'notified_1hr': task.notified1hr,
+      'energy_level': task.energyLevel,
+      'category': task.category,
+      'is_essential': task.isEssential,
+    };
+  }).toList();
+
+  return '$currentTime: ${jsonEncode(taskList)}';
+}
+
+String allTasksAndHabitsJSONs(
+  List<HabitsRecord> habits,
+  List<TasksRecord> tasks,
+) {
+  // Combine all habits and tasks into one string by converting them into their JSON representations and adding them to a string. Use List<Map<String, dynamic>>. Do not use toJson
+  List<Map<String, dynamic>> combinedList = [];
+
+  for (var habit in habits) {
+    combinedList.add({
+      'type': 'habit',
+      'name': habit.name,
+      'description': habit.description,
+      'frequency': habit.frequency,
+      'start_date': habit.startDate?.toIso8601String(),
+      'created_at': habit.createdAt?.toIso8601String(),
+      'user_ref': habit.userRef?.id,
+      'completed_dates': habit.completedDates,
+      // Add other habit fields as needed
+    });
+  }
+
+  for (var task in tasks) {
+    combinedList.add({
+      'type': 'task',
+      'title': task.title,
+      'details': task.details,
+      'user': task.user?.id,
+      'created': task.created?.toIso8601String(),
+      'time_completed': task.timeCompleted?.toIso8601String(),
+      'due_time': task.dueTime?.toIso8601String(),
+      'energy_level': task.energyLevel,
+      // Add other task fields as needed
+    });
+  }
+
+  return jsonEncode(combinedList);
+}
