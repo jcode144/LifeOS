@@ -87,25 +87,65 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
     debugLogDiagnostics: true,
     refreshListenable: appStateNotifier,
     navigatorKey: appNavigatorKey,
-    errorBuilder: (context, state) =>
-        appStateNotifier.loggedIn ? entryPage ?? NavBarPage() : LoginWidget(),
+    errorBuilder: (context, state) => appStateNotifier.loggedIn
+        ? entryPage ?? NavBarPage()
+        : OnboardingWidget(),
     routes: [
       FFRoute(
         name: '_initialize',
         path: '/',
         builder: (context, _) => appStateNotifier.loggedIn
             ? entryPage ?? NavBarPage()
-            : LoginWidget(),
+            : OnboardingWidget(),
       ),
       FFRoute(
-        name: CreateProfileWidget.routeName,
-        path: CreateProfileWidget.routePath,
-        builder: (context, params) => CreateProfileWidget(),
+        name: OldCreateProfileWidget.routeName,
+        path: OldCreateProfileWidget.routePath,
+        builder: (context, params) => OldCreateProfileWidget(),
       ),
       FFRoute(
         name: CreateAccountWidget.routeName,
         path: CreateAccountWidget.routePath,
         builder: (context, params) => CreateAccountWidget(),
+      ),
+      FFRoute(
+        name: OldDashboardWidget.routeName,
+        path: OldDashboardWidget.routePath,
+        builder: (context, params) => OldDashboardWidget(),
+      ),
+      FFRoute(
+        name: LoginWidget.routeName,
+        path: LoginWidget.routePath,
+        builder: (context, params) => LoginWidget(),
+      ),
+      FFRoute(
+        name: HabitsWidget.routeName,
+        path: HabitsWidget.routePath,
+        builder: (context, params) =>
+            params.isEmpty ? NavBarPage(initialPage: 'habits') : HabitsWidget(),
+      ),
+      FFRoute(
+        name: ProgressWidget.routeName,
+        path: ProgressWidget.routePath,
+        builder: (context, params) => params.isEmpty
+            ? NavBarPage(initialPage: 'progress')
+            : ProgressWidget(),
+      ),
+      FFRoute(
+        name: TasksWidget.routeName,
+        path: TasksWidget.routePath,
+        builder: (context, params) =>
+            params.isEmpty ? NavBarPage(initialPage: 'tasks') : TasksWidget(),
+      ),
+      FFRoute(
+        name: OnboardingWidget.routeName,
+        path: OnboardingWidget.routePath,
+        builder: (context, params) => OnboardingWidget(),
+      ),
+      FFRoute(
+        name: NpsWidget.routeName,
+        path: NpsWidget.routePath,
+        builder: (context, params) => NpsWidget(),
       ),
       FFRoute(
         name: DashboardWidget.routeName,
@@ -115,35 +155,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
             : DashboardWidget(),
       ),
       FFRoute(
-        name: LoginWidget.routeName,
-        path: LoginWidget.routePath,
-        builder: (context, params) => LoginWidget(),
+        name: CreateProfileWidget.routeName,
+        path: CreateProfileWidget.routePath,
+        builder: (context, params) => CreateProfileWidget(),
       ),
-      FFRoute(
-          name: HabitsWidget.routeName,
-          path: HabitsWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'habits')
-              : NavBarPage(
-                  initialPage: 'habits',
-                  page: HabitsWidget(),
-                )),
-      FFRoute(
-        name: ProgressWidget.routeName,
-        path: ProgressWidget.routePath,
-        builder: (context, params) => params.isEmpty
-            ? NavBarPage(initialPage: 'progress')
-            : ProgressWidget(),
-      ),
-      FFRoute(
-          name: TasksWidget.routeName,
-          path: TasksWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'tasks')
-              : NavBarPage(
-                  initialPage: 'tasks',
-                  page: TasksWidget(),
-                )),
       FFRoute(
         name: $shadcn_u_i_kit_v48jv9.HomeWidget.routeName,
         path: $shadcn_u_i_kit_v48jv9.HomeWidget.routePath,
@@ -330,7 +345,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/onboarding';
           }
           return null;
         },

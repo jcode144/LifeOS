@@ -57,6 +57,21 @@ class TasksRecord extends FirestoreRecord {
   bool get notified1hr => _notified1hr ?? false;
   bool hasNotified1hr() => _notified1hr != null;
 
+  // "energy_level" field.
+  String? _energyLevel;
+  String get energyLevel => _energyLevel ?? '';
+  bool hasEnergyLevel() => _energyLevel != null;
+
+  // "category" field.
+  String? _category;
+  String get category => _category ?? '';
+  bool hasCategory() => _category != null;
+
+  // "is_essential" field.
+  bool? _isEssential;
+  bool get isEssential => _isEssential ?? false;
+  bool hasIsEssential() => _isEssential != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _details = snapshotData['details'] as String?;
@@ -66,6 +81,9 @@ class TasksRecord extends FirestoreRecord {
     _timeCompleted = snapshotData['time_completed'] as DateTime?;
     _dueTime = snapshotData['due_time'] as DateTime?;
     _notified1hr = snapshotData['notified_1hr'] as bool?;
+    _energyLevel = snapshotData['energy_level'] as String?;
+    _category = snapshotData['category'] as String?;
+    _isEssential = snapshotData['is_essential'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -110,6 +128,9 @@ Map<String, dynamic> createTasksRecordData({
   DateTime? timeCompleted,
   DateTime? dueTime,
   bool? notified1hr,
+  String? energyLevel,
+  String? category,
+  bool? isEssential,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -121,6 +142,9 @@ Map<String, dynamic> createTasksRecordData({
       'time_completed': timeCompleted,
       'due_time': dueTime,
       'notified_1hr': notified1hr,
+      'energy_level': energyLevel,
+      'category': category,
+      'is_essential': isEssential,
     }.withoutNulls,
   );
 
@@ -139,7 +163,10 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e1?.created == e2?.created &&
         e1?.timeCompleted == e2?.timeCompleted &&
         e1?.dueTime == e2?.dueTime &&
-        e1?.notified1hr == e2?.notified1hr;
+        e1?.notified1hr == e2?.notified1hr &&
+        e1?.energyLevel == e2?.energyLevel &&
+        e1?.category == e2?.category &&
+        e1?.isEssential == e2?.isEssential;
   }
 
   @override
@@ -151,7 +178,10 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e?.created,
         e?.timeCompleted,
         e?.dueTime,
-        e?.notified1hr
+        e?.notified1hr,
+        e?.energyLevel,
+        e?.category,
+        e?.isEssential
       ]);
 
   @override

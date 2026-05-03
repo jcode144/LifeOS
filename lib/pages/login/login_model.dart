@@ -30,7 +30,6 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   // State field(s) for Login-Password widget.
   FocusNode? loginPasswordFocusNode;
   TextEditingController? loginPasswordTextController;
-  late bool loginPasswordVisibility;
   String? Function(BuildContext, String?)? loginPasswordTextControllerValidator;
   String? _loginPasswordTextControllerValidator(
       BuildContext context, String? val) {
@@ -48,7 +47,6 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   @override
   void initState(BuildContext context) {
     loginEmailTextControllerValidator = _loginEmailTextControllerValidator;
-    loginPasswordVisibility = false;
     loginPasswordTextControllerValidator =
         _loginPasswordTextControllerValidator;
   }

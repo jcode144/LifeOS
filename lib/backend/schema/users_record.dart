@@ -77,6 +77,11 @@ class UsersRecord extends FirestoreRecord {
   bool get isProfileComplete => _isProfileComplete ?? false;
   bool hasIsProfileComplete() => _isProfileComplete != null;
 
+  // "NPSlogin" field.
+  int? _nPSlogin;
+  int get nPSlogin => _nPSlogin ?? 0;
+  bool hasNPSlogin() => _nPSlogin != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -91,6 +96,7 @@ class UsersRecord extends FirestoreRecord {
     _goldenPathCompleted =
         castToType<int>(snapshotData['golden_path_completed']);
     _isProfileComplete = snapshotData['is_profile_complete'] as bool?;
+    _nPSlogin = castToType<int>(snapshotData['NPSlogin']);
   }
 
   static CollectionReference get collection =>
@@ -139,6 +145,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? goldenPathLogged,
   int? goldenPathCompleted,
   bool? isProfileComplete,
+  int? nPSlogin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -154,6 +161,7 @@ Map<String, dynamic> createUsersRecordData({
       'golden_path_logged': goldenPathLogged,
       'golden_path_completed': goldenPathCompleted,
       'is_profile_complete': isProfileComplete,
+      'NPSlogin': nPSlogin,
     }.withoutNulls,
   );
 
@@ -176,7 +184,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.habitsCreatedCount == e2?.habitsCreatedCount &&
         e1?.goldenPathLogged == e2?.goldenPathLogged &&
         e1?.goldenPathCompleted == e2?.goldenPathCompleted &&
-        e1?.isProfileComplete == e2?.isProfileComplete;
+        e1?.isProfileComplete == e2?.isProfileComplete &&
+        e1?.nPSlogin == e2?.nPSlogin;
   }
 
   @override
@@ -192,7 +201,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.habitsCreatedCount,
         e?.goldenPathLogged,
         e?.goldenPathCompleted,
-        e?.isProfileComplete
+        e?.isProfileComplete,
+        e?.nPSlogin
       ]);
 
   @override

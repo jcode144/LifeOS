@@ -59,7 +59,7 @@ void main() async {
         find.byKey(const ValueKey('Login-Password_50pp')), '1234567');
     await tester.tap(find.byKey(const ValueKey('Login-Button_5f4j')));
     await tester.pumpAndSettle();
-    expect(find.text('Overview for Today'), findsWidgets);
+    expect(find.text('Habit Overview'), findsWidgets);
   });
 
   testWidgets('Successful Account Creation', (WidgetTester tester) async {
@@ -88,6 +88,41 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('Button_ugsf')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
     expect(find.text('Profile'), findsWidgets);
+  });
+
+  testWidgets('us3', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => FFAppState(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => shadcn_u_i_kit_v48jv9_app_state.FFAppState(),
+        ),
+      ],
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('Create-Button_0hvf')));
+    await tester.pumpAndSettle();
+    await tester.enterText(
+        find.byKey(const ValueKey('Create-Email_6eg7')), 'greenball@uri.edu');
+    await tester.enterText(
+        find.byKey(const ValueKey('Create-Password_fxcl')), 'anthony11');
+    await tester.enterText(
+        find.byKey(const ValueKey('Create-Confirm-Passowrd_lbor')),
+        'anthony11');
+    await tester.tap(find.byKey(const ValueKey('Button_ugsf')));
+    await tester.pumpAndSettle();
+    await tester.enterText(
+        find.byKey(const ValueKey('oldCreateProfile_t52l')), 'Anthony Jimenz');
+    await tester.tap(find.byKey(const ValueKey('Button_9xfg')));
+    await tester.pumpAndSettle();
+    expect(find.text('Habit Overview'), findsWidgets);
   });
 }
 
