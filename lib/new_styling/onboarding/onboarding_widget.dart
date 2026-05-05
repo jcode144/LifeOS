@@ -191,6 +191,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 16.0, 24.0, 0.0),
                                       child: SingleChildScrollView(
+                                        key: ValueKey('Column_69yy'),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:

@@ -88,6 +88,16 @@ void main() async {
         find.byKey(const ValueKey('password_Create_1ndk')), '1234567');
     await tester.enterText(
         find.byKey(const ValueKey('password_CreateConfirm_cr9f')), '1234567');
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('Button_f5gy')),
+      100.0,
+      scrollable: find
+          .descendant(
+            of: find.byKey(const ValueKey('Column_69yy')),
+            matching: find.byType(Scrollable),
+          )
+          .first,
+    );
     await tester.tap(find.byKey(const ValueKey('Button_f5gy')));
     await tester.pumpAndSettle();
     expect(find.text('Create your Profile'), findsWidgets);
@@ -117,10 +127,21 @@ void main() async {
         find.byKey(const ValueKey('password_Create_1ndk')), '1234567');
     await tester.enterText(
         find.byKey(const ValueKey('password_CreateConfirm_cr9f')), '1234567');
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('Button_f5gy')),
+      100.0,
+      scrollable: find
+          .descendant(
+            of: find.byKey(const ValueKey('Column_69yy')),
+            matching: find.byType(Scrollable),
+          )
+          .first,
+    );
     await tester.tap(find.byKey(const ValueKey('Button_f5gy')));
     await tester.pumpAndSettle();
     await tester.enterText(find.byKey(const ValueKey('yourName_edw2')), 'User');
     await tester.tap(find.byKey(const ValueKey('Button_zkhz')));
+    await tester.pumpAndSettle();
     expect(find.text('Welcome,'), findsWidgets);
   });
 
