@@ -286,6 +286,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
+                                                        key: ValueKey(
+                                                            'emailAddress_Create_l26n'),
                                                         controller: _model
                                                             .emailAddressCreateTextController,
                                                         focusNode: _model
@@ -434,6 +436,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
+                                                        key: ValueKey(
+                                                            'password_Create_1ndk'),
                                                         controller: _model
                                                             .passwordCreateTextController,
                                                         focusNode: _model
@@ -601,6 +605,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
+                                                        key: ValueKey(
+                                                            'password_CreateConfirm_cr9f'),
                                                         controller: _model
                                                             .passwordCreateConfirmTextController,
                                                         focusNode: _model
@@ -771,6 +777,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
                                                 child: FFButtonWidget(
+                                                  key: ValueKey('Button_f5gy'),
                                                   onPressed: () async {
                                                     logFirebaseEvent(
                                                         'ONBOARDING_PAGE_GET_STARTED_BTN_ON_TAP');
@@ -997,6 +1004,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
+                                                        key: ValueKey(
+                                                            'emailAddress_qw36'),
                                                         controller: _model
                                                             .emailAddressTextController,
                                                         focusNode: _model
@@ -1149,6 +1158,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
+                                                        key: ValueKey(
+                                                            'password_xgmh'),
                                                         controller: _model
                                                             .passwordTextController,
                                                         focusNode: _model
@@ -1323,6 +1334,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
                                                 child: FFButtonWidget(
+                                                  key: ValueKey('Button_l0ij'),
                                                   onPressed: () async {
                                                     logFirebaseEvent(
                                                         'ONBOARDING_PAGE_LOG_IN_BTN_ON_TAP');
@@ -1511,6 +1523,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                     text: 'Create Account',
                                   ),
                                   Tab(
+                                    key: ValueKey('Tab_662p'),
                                     text: 'Log In',
                                   ),
                                 ],

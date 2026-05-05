@@ -113,6 +113,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                       child: TextFormField(
+                        key: ValueKey('yourName_edw2'),
                         controller: _model.yourNameTextController,
                         focusNode: _model.yourNameFocusNode,
                         textCapitalization: TextCapitalization.words,
@@ -327,6 +328,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
+                          key: ValueKey('Button_zkhz'),
                           onPressed: () async {
                             logFirebaseEvent(
                                 'CREATE_PROFILE_SAVE_CHANGES_BTN_ON_TAP');

@@ -104,9 +104,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
         builder: (context, params) => OldCreateProfileWidget(),
       ),
       FFRoute(
-        name: CreateAccountWidget.routeName,
-        path: CreateAccountWidget.routePath,
-        builder: (context, params) => CreateAccountWidget(),
+        name: OldCreateAccountWidget.routeName,
+        path: OldCreateAccountWidget.routePath,
+        builder: (context, params) => OldCreateAccountWidget(),
       ),
       FFRoute(
         name: OldDashboardWidget.routeName,
@@ -114,9 +114,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) {
         builder: (context, params) => OldDashboardWidget(),
       ),
       FFRoute(
-        name: LoginWidget.routeName,
-        path: LoginWidget.routePath,
-        builder: (context, params) => LoginWidget(),
+        name: OldLoginWidget.routeName,
+        path: OldLoginWidget.routePath,
+        builder: (context, params) => OldLoginWidget(),
       ),
       FFRoute(
         name: HabitsWidget.routeName,

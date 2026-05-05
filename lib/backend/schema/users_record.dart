@@ -42,16 +42,6 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
-  // "birthday" field.
-  DateTime? _birthday;
-  DateTime? get birthday => _birthday;
-  bool hasBirthday() => _birthday != null;
-
-  // "phone_number" field.
-  String? _phoneNumber;
-  String get phoneNumber => _phoneNumber ?? '';
-  bool hasPhoneNumber() => _phoneNumber != null;
-
   // "tasks_created_count" field.
   int? _tasksCreatedCount;
   int get tasksCreatedCount => _tasksCreatedCount ?? 0;
@@ -82,14 +72,22 @@ class UsersRecord extends FirestoreRecord {
   int get nPSlogin => _nPSlogin ?? 0;
   bool hasNPSlogin() => _nPSlogin != null;
 
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "birthday" field.
+  DateTime? _birthday;
+  DateTime? get birthday => _birthday;
+  bool hasBirthday() => _birthday != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _birthday = snapshotData['birthday'] as DateTime?;
-    _phoneNumber = snapshotData['phone_number'] as String?;
     _tasksCreatedCount = castToType<int>(snapshotData['tasks_created_count']);
     _habitsCreatedCount = castToType<int>(snapshotData['habits_created_count']);
     _goldenPathLogged = snapshotData['golden_path_logged'] as bool?;
@@ -97,6 +95,8 @@ class UsersRecord extends FirestoreRecord {
         castToType<int>(snapshotData['golden_path_completed']);
     _isProfileComplete = snapshotData['is_profile_complete'] as bool?;
     _nPSlogin = castToType<int>(snapshotData['NPSlogin']);
+    _phoneNumber = snapshotData['phone_number'] as String?;
+    _birthday = snapshotData['birthday'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -138,14 +138,14 @@ Map<String, dynamic> createUsersRecordData({
   String? photoUrl,
   String? uid,
   DateTime? createdTime,
-  DateTime? birthday,
-  String? phoneNumber,
   int? tasksCreatedCount,
   int? habitsCreatedCount,
   bool? goldenPathLogged,
   int? goldenPathCompleted,
   bool? isProfileComplete,
   int? nPSlogin,
+  String? phoneNumber,
+  DateTime? birthday,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -154,14 +154,14 @@ Map<String, dynamic> createUsersRecordData({
       'photo_url': photoUrl,
       'uid': uid,
       'created_time': createdTime,
-      'birthday': birthday,
-      'phone_number': phoneNumber,
       'tasks_created_count': tasksCreatedCount,
       'habits_created_count': habitsCreatedCount,
       'golden_path_logged': goldenPathLogged,
       'golden_path_completed': goldenPathCompleted,
       'is_profile_complete': isProfileComplete,
       'NPSlogin': nPSlogin,
+      'phone_number': phoneNumber,
+      'birthday': birthday,
     }.withoutNulls,
   );
 
@@ -178,14 +178,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.birthday == e2?.birthday &&
-        e1?.phoneNumber == e2?.phoneNumber &&
         e1?.tasksCreatedCount == e2?.tasksCreatedCount &&
         e1?.habitsCreatedCount == e2?.habitsCreatedCount &&
         e1?.goldenPathLogged == e2?.goldenPathLogged &&
         e1?.goldenPathCompleted == e2?.goldenPathCompleted &&
         e1?.isProfileComplete == e2?.isProfileComplete &&
-        e1?.nPSlogin == e2?.nPSlogin;
+        e1?.nPSlogin == e2?.nPSlogin &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.birthday == e2?.birthday;
   }
 
   @override
@@ -195,14 +195,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.birthday,
-        e?.phoneNumber,
         e?.tasksCreatedCount,
         e?.habitsCreatedCount,
         e?.goldenPathLogged,
         e?.goldenPathCompleted,
         e?.isProfileComplete,
-        e?.nPSlogin
+        e?.nPSlogin,
+        e?.phoneNumber,
+        e?.birthday
       ]);
 
   @override

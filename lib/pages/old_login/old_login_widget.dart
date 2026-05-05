@@ -3,41 +3,43 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'create_account_model.dart';
-export 'create_account_model.dart';
+import 'old_login_model.dart';
+export 'old_login_model.dart';
 
-class CreateAccountWidget extends StatefulWidget {
-  const CreateAccountWidget({super.key});
+class OldLoginWidget extends StatefulWidget {
+  const OldLoginWidget({super.key});
 
-  static String routeName = 'CreateAccount';
-  static String routePath = '/createAccount';
+  static String routeName = 'oldLogin';
+  static String routePath = '/oldLogin';
 
   @override
-  State<CreateAccountWidget> createState() => _CreateAccountWidgetState();
+  State<OldLoginWidget> createState() => _OldLoginWidgetState();
 }
 
-class _CreateAccountWidgetState extends State<CreateAccountWidget> {
-  late CreateAccountModel _model;
+class _OldLoginWidgetState extends State<OldLoginWidget> {
+  late OldLoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateAccountModel());
+    _model = createModel(context, () => OldLoginModel());
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'CreateAccount'});
-    _model.createEmailTextController ??= TextEditingController();
-    _model.createEmailFocusNode ??= FocusNode();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'oldLogin'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('OLD_LOGIN_PAGE_oldLogin_ON_INIT_STATE');
+    });
 
-    _model.createPasswordTextController ??= TextEditingController();
-    _model.createPasswordFocusNode ??= FocusNode();
+    _model.loginEmailTextController ??= TextEditingController();
+    _model.loginEmailFocusNode ??= FocusNode();
 
-    _model.createConfirmPassowrdTextController ??= TextEditingController();
-    _model.createConfirmPassowrdFocusNode ??= FocusNode();
+    _model.loginPasswordTextController ??= TextEditingController();
+    _model.loginPasswordFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -58,7 +60,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: Container(
@@ -84,7 +86,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                     ),
                     Text(
-                      'Create Account',
+                      'Login',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 font: GoogleFonts.plusJakartaSans(
@@ -107,9 +109,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       child: Container(
                         width: 250.0,
                         child: TextFormField(
-                          key: ValueKey('Create-Email_6eg7'),
-                          controller: _model.createEmailTextController,
-                          focusNode: _model.createEmailFocusNode,
+                          controller: _model.loginEmailTextController,
+                          focusNode: _model.loginEmailFocusNode,
                           textCapitalization: TextCapitalization.sentences,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -198,7 +199,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                         .fontStyle,
                                   ),
                           textAlign: TextAlign.start,
-                          validator: _model.createEmailTextControllerValidator
+                          validator: _model.loginEmailTextControllerValidator
                               .asValidator(context),
                           inputFormatters: [
                             if (!isAndroid && !isiOS)
@@ -220,11 +221,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       child: Container(
                         width: 250.0,
                         child: TextFormField(
-                          key: ValueKey('Create-Password_fxcl'),
-                          controller: _model.createPasswordTextController,
-                          focusNode: _model.createPasswordFocusNode,
+                          controller: _model.loginPasswordTextController,
+                          focusNode: _model.loginPasswordFocusNode,
                           textCapitalization: TextCapitalization.sentences,
-                          obscureText: !_model.createPasswordVisibility,
+                          obscureText: false,
                           decoration: InputDecoration(
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -293,21 +293,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             fillColor: Colors.white,
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 24.0, 0.0, 24.0),
-                            suffixIcon: InkWell(
-                              onTap: () async {
-                                safeSetState(() =>
-                                    _model.createPasswordVisibility =
-                                        !_model.createPasswordVisibility);
-                              },
-                              focusNode: FocusNode(skipTraversal: true),
-                              child: Icon(
-                                _model.createPasswordVisibility
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: Color(0xFF757575),
-                                size: 22.0,
-                              ),
-                            ),
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -326,138 +311,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                         .fontStyle,
                                   ),
                           textAlign: TextAlign.start,
-                          validator: _model
-                              .createPasswordTextControllerValidator
-                              .asValidator(context),
-                          inputFormatters: [
-                            if (!isAndroid && !isiOS)
-                              TextInputFormatter.withFunction(
-                                  (oldValue, newValue) {
-                                return TextEditingValue(
-                                  selection: newValue.selection,
-                                  text: newValue.text.toCapitalization(
-                                      TextCapitalization.sentences),
-                                );
-                              }),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
-                      child: Container(
-                        width: 250.0,
-                        child: TextFormField(
-                          key: ValueKey('Create-Confirm-Passowrd_lbor'),
-                          controller:
-                              _model.createConfirmPassowrdTextController,
-                          focusNode: _model.createConfirmPassowrdFocusNode,
-                          textCapitalization: TextCapitalization.sentences,
-                          obscureText: !_model.createConfirmPassowrdVisibility,
-                          decoration: InputDecoration(
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xFF101213),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            hintText: 'Confirm Password',
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0xFF57636C),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFE0E3E7),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF5C6784),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFFF5963),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFFF5963),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 24.0, 0.0, 24.0),
-                            suffixIcon: InkWell(
-                              onTap: () async {
-                                safeSetState(() => _model
-                                        .createConfirmPassowrdVisibility =
-                                    !_model.createConfirmPassowrdVisibility);
-                              },
-                              focusNode: FocusNode(skipTraversal: true),
-                              child: Icon(
-                                _model.createConfirmPassowrdVisibility
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: Color(0xFF757575),
-                                size: 22.0,
-                              ),
-                            ),
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.plusJakartaSans(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFF14181B),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                          textAlign: TextAlign.start,
-                          validator: _model
-                              .createConfirmPassowrdTextControllerValidator
+                          validator: _model.loginPasswordTextControllerValidator
                               .asValidator(context),
                           inputFormatters: [
                             if (!isAndroid && !isiOS)
@@ -479,12 +333,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          key: ValueKey('Button_ugsf'),
                           onPressed: () async {
                             logFirebaseEvent(
-                                'CREATE_ACCOUNT_CREATE_ACCOUNT_BTN_ON_TAP');
+                                'OLD_LOGIN_PAGE_Login-Button_ON_TAP');
                           },
-                          text: 'Create Account',
+                          text: 'Log In',
                           options: FFButtonOptions(
                             width: 240.0,
                             height: 64.0,
@@ -520,18 +373,60 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional(-1.0, 1.0),
-                      child: Container(
-                        width: 65.0,
-                        height: 65.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF9AEEFF),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).primaryText,
+                    if (getRemoteConfigString('sign_up_style') == 'button')
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.05),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'OLD_LOGIN_PAGE_Create-Button_ON_TAP');
+                              logFirebaseEvent('Create-Button_navigate_to');
+
+                              context
+                                  .pushNamed(OldCreateAccountWidget.routeName);
+                            },
+                            text: 'Create Account?',
+                            options: FFButtonOptions(
+                              width: 240.0,
+                              height: 64.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF4CB963),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
                           ),
                         ),
+                      ),
+                    if (getRemoteConfigString('sign_up_style') == 'text_link')
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -539,21 +434,36 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
-                                'CREATE_ACCOUNT_PAGE_Icon_f5ara50p_ON_TAP');
-                            logFirebaseEvent('Icon_navigate_to');
+                                'OLD_LOGIN_PAGE_Text_2ppekp5m_ON_TAP');
+                            logFirebaseEvent('Text_navigate_to');
 
-                            context.goNamed(LoginWidget.routeName);
+                            context.pushNamed(OldCreateAccountWidget.routeName);
                           },
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            size: 32.0,
+                          child: Text(
+                            'Don\'t have an Account? Create One!',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.plusJakartaSans(
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFF101213),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                  decoration: TextDecoration.underline,
+                                  lineHeight: 2.0,
+                                ),
                           ),
                         ),
                       ),
-                    ),
-                  ].divide(SizedBox(height: 36.0)),
+                  ].divide(SizedBox(height: 30.0)),
                 ),
               ),
             ),

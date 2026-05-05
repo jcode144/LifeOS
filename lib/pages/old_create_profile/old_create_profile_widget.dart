@@ -443,7 +443,6 @@ class _OldCreateProfileWidgetState extends State<OldCreateProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                       child: FFButtonWidget(
-                        key: ValueKey('Button_9xfg'),
                         onPressed: () async {
                           logFirebaseEvent(
                               'OLD_CREATE_PROFILE_COMPLETE_PROFILE_BTN_');

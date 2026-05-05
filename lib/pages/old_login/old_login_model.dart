@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'login_widget.dart' show LoginWidget;
+import 'old_login_widget.dart' show OldLoginWidget;
 import 'package:flutter/material.dart';
 
-class LoginModel extends FlutterFlowModel<LoginWidget> {
+class OldLoginModel extends FlutterFlowModel<OldLoginWidget> {
   ///  Local state fields for this page.
 
   String textOrButton = 'True';

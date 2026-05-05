@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'create_account_widget.dart' show CreateAccountWidget;
+import 'old_create_account_widget.dart' show OldCreateAccountWidget;
 import 'package:flutter/material.dart';
 
-class CreateAccountModel extends FlutterFlowModel<CreateAccountWidget> {
+class OldCreateAccountModel extends FlutterFlowModel<OldCreateAccountWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
